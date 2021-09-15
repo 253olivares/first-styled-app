@@ -1,54 +1,32 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import React from 'react';
+import { Link } from 'gatsby';
+import Navbar from '../components/Navbar';
 
-// styles
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-
-// markup
-const NotFoundPage = () => {
+const PageNotFound = () => {
   return (
-    <main style={pageStyles}>
-      <title>Not found</title>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry{" "}
-        <span role="img" aria-label="Pensive emoji">
-          😔
-        </span>{" "}
-        we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
-  )
-}
+    <React.Fragment>
+        <div class="content">
+            <Navbar></Navbar>
+            <div class="header">
+              <h1>Plain Page</h1>
+            </div>
+            <div class="textContent">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tempus magna id dolor facilisis molestie. Maecenas non magna feugiat, aliquet leo ut, placerat leo. Pellentesque condimentum vestibulum magna vitae aliquet. Duis eleifend purus ac auctor hendrerit. Maecenas gravida metus sit amet lorem pellentesque lacinia. Ut quis aliquet orci. Aliquam sit amet mauris tortor. Aliquam ac aliquam dui, egestas fringilla mauris. Quisque id mi ut mi accumsan interdum. Integer eu vestibulum tellus.</p>
+            </div>
+            <div class="joinbtn">
+              <button>
+                <Link to="/login">Join Us</Link>
+              </button>
+            </div>
+            <div class="events">
+              <h5>Upcoming Events</h5>
+              <Link to="/events/Boss">10/16/21 Boss's Day</Link>
+              <Link to="/events/Halloween">10/31/21 All Hallow's Eve</Link>
+              <Link to="/events/Turkey">11/25/21 Turkey Day</Link>
+            </div>
+        </div>
+    </React.Fragment>
+  );
+};
 
-export default NotFoundPage
+export default PageNotFound;
